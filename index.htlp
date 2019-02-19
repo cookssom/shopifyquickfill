@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        hr {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 1px;
+            background-color: #63b33b;
+            /* same colour as the button bc idk how to change the button's colour lul xd */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1><b>Autofill Settings</b></h1>
+
+        <hr>
+        <p>Fill out the following fields to be autofilled when you cart products on Shopify-enabled sites. Your info will be saved locally in your browser's cookies.
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3><b>Contact Info</b></h3>
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email">
+
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone">
+            </div>
+            <div class="col-sm-8">
+                <h3><b>Shipping Info</b></h3>
+                <label for="fName">First Name</label>
+                <input type="text" class="form-control" id="fName">
+                <label for="lName">Last Name</label>
+                <input type="text" class="form-control" id="lName">
+
+                <label for="addy1">Address 1</label>
+                <input type="text" class="form-control" id="addy1">
+                <label for="addy1">Address 2</label>
+                <input type="text" class="form-control" id="addy2">
+
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city">
+                <label for="postalCode">Postal Code</label>
+                <input type="text" class="form-control" id="postalCode">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country">
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="container">
+        <center>
+            <button type="button" class="btn btn-success" onclick="saveCookies()">Save Settings</button>
+        </center>
+    </div>
+
+    <script type="text/javascript" charset="utf8">
+        function saveCookies() {
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var fName = document.getElementById("fName").value;
+            var lName = document.getElementById("lName").value;
+            var addy1 = document.getElementById("addy1").value;
+            var addy2 = document.getElementById("addy2").value;
+            var city = document.getElementById("city").value;
+            var postalCode = document.getElementById("postalCode").value;
+            var state = document.getElementById("state").value;
+            var country = document.getElementById("country").value;
+
+            var d = new Date();
+            d.setTime(d.getTime() + (1500 * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+
+            document.cookie = "email=" + email + "; path=/;expires=" + expires + ";";
+            document.cookie = "phone=" + phone + "; path=/;expires=" + expires + ";";
+            document.cookie = "fName=" + fName + "; path=/;expires=" + expires + ";";
+            document.cookie = "lName=" + lName + "; path=/;expires=" + expires + ";";
+            document.cookie = "addy1=" + addy1 + "; path=/;expires=" + expires + ";";
+            document.cookie = "addy2=" + addy2 + "; path=/;expires=" + expires + ";";
+            document.cookie = "city=" + city + "; path=/;expires=" + expires + ";";
+            document.cookie = "postalCode=" + postalCode + "; path=/;expires=" + expires + ";";
+            document.cookie = "state=" + state + "; path=/;expires=" + expires + ";";
+            document.cookie = "country=" + country + "; path=/;expires=" + expires + ";";
+        }
+    </script>
+</body>
+
+</html>
